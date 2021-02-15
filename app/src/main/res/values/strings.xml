@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Conversor_navegador_web</string>
+
+    <array name="tipo_moneda">
+        <item>EUROS</item>
+        <item>DOLARES</item>
+        <item>LIBRAS</item>
+        <item>YENES</item>
+    </array>
+
+    <array name="nueva_moneda">
+        <item>EUROS</item>
+        <item>DOLARES</item>
+        <item>LIBRAS</item>
+        <item>YENES</item>
+    </array>
+
+
+</resources>
