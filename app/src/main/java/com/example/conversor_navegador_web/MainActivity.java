@@ -2,6 +2,7 @@ package com.example.conversor_navegador_web;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.util.Log;
@@ -40,8 +41,6 @@ public class MainActivity extends AppCompatActivity {
         tipoInicial.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                /*String valor = String.valueOf(idTI);
-                resultado.setText(valor);*/
             }
 
             @Override
@@ -55,118 +54,14 @@ public class MainActivity extends AppCompatActivity {
                 int idTI = (int)tipoInicial.getSelectedItemId();
                 int idTF = (int)tipoFinal.getSelectedItemId();
 
-                //Map
-
-                /*if(idTI == 0) {
-                   float valorinicial;
-                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                   float Rresultado = valorinicial * bidimensional[0][1];
-                   resultado.setText(String.valueOf(Rresultado));
-                }*/
-
-
-                   /*switch (idTI){
-                       case 0:
-                               if(idTF == 0) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[0][0];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 1){
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[0][1];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 2) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[0][2];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 3) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[0][3];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }
-                               break;
-                       case 1:
-                               if(idTF == 0) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[1][0];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 1){
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[1][1];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 2) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[1][2];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }else if(idTF == 3) {
-                                   float valorinicial;
-                                   valorinicial = Float.valueOf(valorIinial.getText().toString());
-                                   float Rresultado = valorinicial * bidimensional[1][3];
-                                   resultado.setText(String.valueOf(Rresultado));
-                               }
-                           break;
-                       case 2:
-                           if(idTF == 0) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[2][0];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 1){
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[2][1];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 2) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[2][2];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 3) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[2][3];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }
-                           break;
-                       case 3:
-                           if(idTF == 0) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[3][0];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 1){
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[3][1];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 2) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[3][2];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }else if(idTF == 3) {
-                               float valorinicial;
-                               valorinicial = Float.valueOf(valorIinial.getText().toString());
-                               float Rresultado = valorinicial * bidimensional[3][3];
-                               resultado.setText(String.valueOf(Rresultado));
-                           }
-                           break;
-                       default:
-                           throw new IllegalStateException("Unexpected value: " + idTI);
-                   }*/
-
                 if(valorIinial.getText().toString().isEmpty()){
                         valorIinial.setError("Introduce una cantidad por favor");
                 }else{
                         float conversion = Float.parseFloat(valorIinial.getText().toString()) * bidimensional[idTI][idTF];
                         resultado.setText(String.valueOf(conversion));
+                        Intent intent = new Intent(MainActivity.this, EnviarCorreo.class);
+                        intent.putExtra("Valor", String.valueOf(resultado));
+                        startActivity(intent);
                     }
 
                 }
