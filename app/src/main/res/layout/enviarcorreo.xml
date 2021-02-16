@@ -26,6 +26,12 @@
             android:timePickerMode="clock" />
 
         <Button
+            android:id="@+id/paginaWeb"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="pagina web" />
+
+        <Button
             android:id="@+id/enviar_por_correo"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

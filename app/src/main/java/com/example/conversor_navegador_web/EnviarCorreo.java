@@ -23,26 +23,11 @@ public class EnviarCorreo extends MainActivity{
         Button enviar_correo = findViewById(R.id.enviar_por_correo);
         CalendarView calendario = findViewById(R.id.calendarView);
         TimePicker hora = findViewById(R.id.event_time_picker);
+        Button siguiente = findViewById(R.id.paginaWeb);
 
         enviar_correo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String addresses = "pedro.rodriguez@escuelaestech.es";
-                String subject = "Asunto";
-                String text = "hola";
-                /*Intent enviar_correo2 = new Intent(Intent.ACTION_SENDTO);
-                enviar_correo2.setData(Uri.parse("mailto:"));
-                enviar_correo2.setType("text/plain");
-                enviar_correo2.putExtra(Intent.EXTRA_EMAIL, addresses);
-                enviar_correo2.putExtra(Intent.EXTRA_SUBJECT, subject);
-                enviar_correo2.putExtra(Intent.EXTRA_TEXT, text);
-                enviar_correo2.putExtra(Intent.EXTRA_TEXT, valor);
-                if (enviar_correo2.resolveActivity(getPackageManager()) != null) {
-                    startActivity(enviar_correo2);
-                } else {
-                    Toast.makeText(EnviarCorreo.this, "ERES TONTO PEDROLU", Toast.LENGTH_LONG).show();
-                }*/
-
                 Intent correo= new Intent(Intent.ACTION_SENDTO);
                 String addresses = "pedro.rodriguez@escuelaestech.es";
                 String subject = "Asunto";
@@ -56,5 +41,14 @@ public class EnviarCorreo extends MainActivity{
                 startActivity(correo);
             }
         });
+
+        siguiente.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent siguiente = new Intent(EnviarCorreo.this, paginaweb.class);
+                startActivity(siguiente);
+            }
+        });
+
     }
 }
