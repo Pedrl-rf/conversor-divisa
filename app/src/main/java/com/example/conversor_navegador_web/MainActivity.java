@@ -60,7 +60,7 @@ public class MainActivity extends AppCompatActivity {
                         float conversion = Float.parseFloat(valorIinial.getText().toString()) * bidimensional[idTI][idTF];
                         resultado.setText(String.valueOf(conversion));
                         Intent intent = new Intent(MainActivity.this, EnviarCorreo.class);
-                        intent.putExtra("Valor", String.valueOf(resultado));
+                        intent = intent.putExtra("Valor", String.valueOf(conversion));
                         startActivity(intent);
                     }
 
